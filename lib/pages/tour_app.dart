@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tour_app/pages/constants.dart';
+import 'package:tour_app/pages/home_screen.dart';
 
 class TourApp extends StatefulWidget {
   const TourApp({super.key});
@@ -18,8 +19,8 @@ class _TourAppState extends State<TourApp> {
     return IndexedStack(
       index: activeTab,
       children: [
-        // HomeScreen(),
-        Text("home"),
+        HomeScreen(),
+        // Text("home"),
         Text("home"),
 
         Text("home"),
@@ -52,13 +53,13 @@ class _TourAppState extends State<TourApp> {
                 },
                 icon: Icon(
                   icons[index],
-                  color: activeTab == index ? primaryColor : iconColor,
+                  color: activeTab == index ? primaryColor : downIconColor,
                 ),
               ),
               Text(
                 lables[index],
                 style: TextStyle(
-                  color: activeTab == index ? primaryColor : iconColor,
+                  color: activeTab == index ? primaryColor : downIconColor,
                 ),
               ),
             ],
@@ -67,26 +68,4 @@ class _TourAppState extends State<TourApp> {
       ),
     );
   }
-
-  // PreferredSizeWidget getAppBar() {
-  //   return AppBar(
-  //     leading: IconButton(
-  //       onPressed: () {},
-  //       icon: Icon(Icons.menu_rounded),
-  //       color: iconColor,
-  //     ),
-  //     title: Text(
-  //       "Simien Mountains",
-  //       textAlign: TextAlign.center,
-  //       style: TextStyle(fontWeight: FontWeight.bold, color: titleColor),
-  //     ),
-  //     actions: [
-  //       IconButton(
-  //         icon: Icon(Icons.search),
-  //         onPressed: () {},
-  //         color: iconColor,
-  //       ),
-  //     ],
-  //   );
-  // }
 }
