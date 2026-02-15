@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tour_app/pages/constants.dart';
+import 'package:tour_app/pages/details_screen.dart';
 import 'package:tour_app/pages/home_screen.dart';
+import 'package:tour_app/pages/profile_screen.dart';
 
 class TourApp extends StatefulWidget {
   const TourApp({super.key});
@@ -20,20 +22,20 @@ class _TourAppState extends State<TourApp> {
       index: activeTab,
       children: [
         HomeScreen(),
-        // Text("home"),
-        Text("home"),
-
-        Text("home"),
+        DetailsScreen(
+          onTabChange: (index) {
+            setState(() {
+              activeTab = index;
+            });
+          },
+        ),
+        ProfileScreen(),
       ],
     );
   }
 
   Widget getFooter() {
-    List<IconData> icons = [
-      Icons.home,
-      Icons.explore_outlined,
-      Icons.person_outline,
-    ];
+    List<IconData> icons = [Icons.home, Icons.explore, Icons.person_outline];
 
     List<String> lables = ["Home", "Explore", "Profile"];
     return Container(

@@ -2,6 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:tour_app/pages/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// HEROSECTION CARDS
+class HeroSection extends StatelessWidget {
+  final String img, title, subtitle;
+  const HeroSection({
+    super.key,
+    required this.img,
+    required this.title,
+    required this.subtitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Stack(
+      children: [
+        Container(
+          height: size.height * 0.38,
+          width: size.width,
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(img), fit: BoxFit.cover),
+            color: downIconColor,
+          ),
+        ),
+
+        Positioned(
+          bottom: 30,
+          left: 25,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  letterSpacing: 2,
+                  fontSize: 25,
+                  color: bgColor,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              Text(subtitle, style: TextStyle(fontSize: 18, color: bgColor)),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 //Destination cards
 class Destination extends StatelessWidget {
   final String img, title, subtitle;
@@ -112,6 +160,62 @@ class HighlightCards extends StatelessWidget {
             ),
           ],
         ),
+      ],
+    );
+  }
+}
+
+// INFO CARDS
+class InfoCards extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const InfoCards({super.key, required this.icon, required this.text});
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: paddingValue),
+      child: Row(
+        children: [
+          Container(
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: downIconColor.withValues(alpha: 0.1),
+            ),
+            child: Icon(icon, color: upIconColor.withValues(alpha: 0.7)),
+          ),
+          SizedBox(width: 20),
+          Text(text, style: TextStyle(fontSize: 16)),
+        ],
+      ),
+    );
+  }
+}
+
+// WILD LIFE CARD
+class WildLifeCard extends StatelessWidget {
+  final String img, txt;
+  const WildLifeCard({super.key, required this.img, required this.txt});
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: size.height * 0.15,
+          width: size.width * 0.45,
+          decoration: BoxDecoration(
+            color: downIconColor,
+            borderRadius: BorderRadius.circular(5),
+            image: DecorationImage(image: AssetImage(img), fit: BoxFit.cover),
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(txt, style: TextStyle(fontWeight: FontWeight.bold)),
       ],
     );
   }

@@ -39,43 +39,10 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                Container(
-                  height: size.height * 0.38,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/heroimg.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                    color: downIconColor,
-                  ),
-                ),
-
-                Positioned(
-                  bottom: 30,
-                  left: 25,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Explore the Simien Mountains",
-                        style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize: 25,
-                          color: bgColor,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Text(
-                        "Discover the Roof of Africa",
-                        style: TextStyle(fontSize: 18, color: bgColor),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            HeroSection(
+              img: "images/heroimg.jpg",
+              title: "Explore the Simien Mountains",
+              subtitle: "Discover the Roof of Africa",
             ),
             Titles(txt: "Top Destinations"),
 
