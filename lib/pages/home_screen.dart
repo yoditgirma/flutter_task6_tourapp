@@ -162,7 +162,10 @@ class HomeScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: downIconColor,
-                  image: DecorationImage(image: AssetImage("images/land.jpg")),
+                  image: DecorationImage(
+                    image: AssetImage("images/land.jpg"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

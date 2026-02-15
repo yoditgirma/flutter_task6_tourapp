@@ -100,7 +100,8 @@ class HighlightCards extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(img, width: 100, height: 100),
+            SvgPicture.asset(img, width: 25, height: 25),
+            SizedBox(height: 10),
             Text(
               text,
               style: TextStyle(
