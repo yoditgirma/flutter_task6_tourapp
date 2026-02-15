@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tour_app/pages/constants.dart';
+import 'package:tour_app/reused.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,49 +35,139 @@ class HomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: paddingValue),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              Container(
-                height: size.height * 0.38,
-                width: size.width,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("images/heroimg.jpg"),
-                    fit: BoxFit.cover,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: size.height * 0.38,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("images/heroimg.jpg"),
+                      fit: BoxFit.cover,
+                    ),
+                    color: downIconColor,
                   ),
-                  color: downIconColor,
                 ),
-              ),
 
-              Positioned(
-                bottom: 30,
-                left: 25,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Explore the Simien Mountains",
-                      style: TextStyle(
-                        letterSpacing: 2,
-                        fontSize: 25,
-                        color: bgColor,
-                        fontWeight: FontWeight.w700,
+                Positioned(
+                  bottom: 30,
+                  left: 25,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Explore the Simien Mountains",
+                        style: TextStyle(
+                          letterSpacing: 2,
+                          fontSize: 25,
+                          color: bgColor,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
+                      Text(
+                        "Discover the Roof of Africa",
+                        style: TextStyle(fontSize: 18, color: bgColor),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Titles(txt: "Top Destinations"),
+
+            Row(
+              children: [
+                Expanded(
+                  child: Destination(
+                    img: "images/rasdashn.jpg",
+                    title: "Ras Dashen",
+                    subtitle: "Highest Peak",
+                  ),
+                ),
+
+                Expanded(
+                  child: Destination(
+                    img: "images/geech.jpg",
+                    title: "Geech Camp",
+                    subtitle: "Scenic View",
+                  ),
+                ),
+              ],
+            ),
+
+            Titles(txt: "Highlights"),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: paddingValue),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: HighlightCards(
+                      img: "images/mountain.svg",
+                      text: "Hiking Trails",
+                      color: primaryColor,
                     ),
-                    Text(
-                      "Discover the Roof of Africa",
-                      style: TextStyle(fontSize: 18, color: bgColor),
+                  ),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: size.height * 0.2,
+                          width: size.width * 0.3,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: AssetImage("images/wolf.jpg"),
+                              fit: BoxFit.cover,
+                            ),
+                            color: downIconColor,
+                          ),
+                        ),
+
+                        Positioned(
+                          bottom: 10,
+                          left: 25,
+                          child: Text(
+                            "Wildlife Viewing",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: bgColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
+                  Expanded(
+                    child: HighlightCards(
+                      img: "images/home.svg",
+                      text: "Local Villages",
+                      color: goldon,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(paddingValue),
+              child: Container(
+                height: size.height * 0.25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: downIconColor,
+                  image: DecorationImage(image: AssetImage("images/land.jpg")),
                 ),
               ),
-            ],
-          ),
-          Text("Top Destinations", style: TextStyle(color: titleColor)),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
