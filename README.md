@@ -1,4 +1,4 @@
-# tour_app
+# tour_app Flutter UI
 
 A new Flutter project.
 
