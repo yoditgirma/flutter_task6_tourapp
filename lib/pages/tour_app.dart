@@ -29,13 +29,19 @@ class _TourAppState extends State<TourApp> {
             });
           },
         ),
-        ProfileScreen(),
+        ProfileScreen(
+          onTabChange: (index) {
+            setState(() {
+              activeTab = index;
+            });
+          },
+        ),
       ],
     );
   }
 
   Widget getFooter() {
-    List<IconData> icons = [Icons.home, Icons.explore, Icons.person_outline];
+    List<IconData> icons = [Icons.home, Icons.explore, Icons.person];
 
     List<String> lables = ["Home", "Explore", "Profile"];
     return Container(

@@ -220,3 +220,68 @@ class WildLifeCard extends StatelessWidget {
     );
   }
 }
+
+// GUIDLINE LIST
+class GuidelineList extends StatelessWidget {
+  final String text;
+  const GuidelineList({super.key, required this.text});
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Row(
+        children: [
+          Icon(Icons.circle, size: 12, color: primaryColor),
+          SizedBox(width: 10),
+          Text(text, style: TextStyle(fontSize: 18)),
+        ],
+      ),
+    );
+  }
+}
+
+//SAVED PLACES
+
+class SavedPlaces extends StatelessWidget {
+  final String text;
+  final IconData icon1;
+  final Color color;
+  const SavedPlaces({
+    super.key,
+    required this.text,
+    required this.icon1,
+    required this.color,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Container(
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Icon(icon1, color: color),
+            ),
+
+            SizedBox(width: 10),
+            Text(text, style: TextStyle(fontSize: 16)),
+          ],
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.arrow_forward_ios_rounded,
+            size: 15,
+            color: downIconColor,
+          ),
+        ),
+      ],
+    );
+  }
+}
