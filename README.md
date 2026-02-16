@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Tour App Flutter UI
-=======
-# tour_app Flutter UI
->>>>>>> 982b36a59e94f5c27f77f31abfa28fab5067892a
 
 The project focuses on UI design and layout.
 
